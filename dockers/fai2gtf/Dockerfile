@@ -1,0 +1,10 @@
+FROM ubuntu:18.04
+
+LABEL maintainer="Jaeyoung Chun (chunj@mskcc.org)"
+
+RUN apt-get update \
+    && apt-get install --yes build-essential python3 python3-pip
+
+COPY fai2gtf.py /opt/fai2gtf.py
+
+WORKDIR /opt

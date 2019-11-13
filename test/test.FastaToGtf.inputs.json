@@ -1,0 +1,3 @@
+{
+    "FastaToGtf.fasta": "gs://chunj-cromwell/custom-genes/tdTomato.fa"
+}

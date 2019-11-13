@@ -1,0 +1,7 @@
+{
+    "CreateFullGtf.normalFullGtf": "gs://chunj-cromwell/custom-genes/mm38/annotations.gtf",
+    "CreateFullGtf.cutomGtfs": [
+        "gs://chunj-cromwell/cromwell-execution/FastaToGtf/568071eb-e23b-4d1d-81dd-cc1c5faa4490/call-IndexToGtf/GFP.gtf",
+        "gs://chunj-cromwell/cromwell-execution/FastaToGtf/6073fd21-a998-46d4-a08c-ec5ccd3e5420/call-IndexToGtf/tdTomato.gtf"
+    ]
+}
