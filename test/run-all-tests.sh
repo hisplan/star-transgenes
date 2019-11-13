@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-modules="FastaToGtf"
+modules="FastaToGtf CreateFullGtf STAR"
 
 for module_name in $modules
 do

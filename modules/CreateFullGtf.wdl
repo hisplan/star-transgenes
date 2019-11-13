@@ -4,17 +4,17 @@ task CreateFullGtf {
 
     input {
         File normalFullGtf
-        Array[File] cutomGtfs
+        Array[File] customGtfs
     }
 
     String outName = "custom-annotations.gtf"
-    Float inputSize = size(normalFullGtf, "GiB")
+    Float inputSize = size(normalFullGtf, "GiB") + size(customGtfs, "GiB")
     Int numCores = 1
 
     command <<<
         set -euo pipefail
 
-        cat ~{normalFullGtf} ~{sep=" " cutomGtfs} > ~{outName}
+        cat ~{normalFullGtf} ~{sep=" " customGtfs} > ~{outName}
     >>>
 
     output {

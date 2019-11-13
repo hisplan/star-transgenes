@@ -36,6 +36,7 @@ task IndexToGtf {
 
     input {
         File fastaIdx
+        String ensembleId
     }
 
     String outName = basename(fastaIdx, ".fa.fai") + ".gtf"
@@ -47,7 +48,12 @@ task IndexToGtf {
     command <<<
         set -euo pipefail
 
-        cat ~{fastaIdx} | python3 /opt/fai2gtf.py | tee ~{outName}
+        # cat ~{fastaIdx} | python3 /opt/fai2gtf.py | tee ~{outName}
+
+        python3 /opt/fai2gtf.py \
+            --fai ~{fastaIdx} \
+            --ensembl-id ~{ensembleId} \
+            | tee ~{outName}
     >>>
 
     output {

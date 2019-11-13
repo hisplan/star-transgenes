@@ -6,6 +6,7 @@ workflow FastaToGtf {
 
     input {
         File fasta
+        String ensembleId
     }
 
     call FastaToGtf.IndexFasta {
@@ -15,7 +16,8 @@ workflow FastaToGtf {
 
     call FastaToGtf.IndexToGtf {
         input:
-            fastaIdx = IndexFasta.out
+            fastaIdx = IndexFasta.out,
+            ensembleId = ensembleId
     }
 
     output {

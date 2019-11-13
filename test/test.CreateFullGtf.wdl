@@ -6,13 +6,13 @@ workflow CreateFullGtf {
 
     input {
         File normalFullGtf
-        Array[File] cutomGtfs
+        Array[File] customGtfs
     }
 
     call CreateFullGtf.CreateFullGtf {
         input:
             normalFullGtf = normalFullGtf,
-            cutomGtfs = cutomGtfs
+            customGtfs = customGtfs
     }
 
     output {

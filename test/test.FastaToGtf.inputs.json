@@ -1,3 +1,4 @@
 {
-    "FastaToGtf.fasta": "gs://chunj-cromwell/custom-genes/tdTomato.fa"
+    "FastaToGtf.fasta": "gs://chunj-cromwell/custom-genes/tdTomato.fa",
+    "FastaToGtf.ensembleId": "ENSMUSG00000900002"
 }

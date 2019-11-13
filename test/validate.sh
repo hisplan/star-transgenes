@@ -3,7 +3,7 @@
 #hack: get dependency set up
 ln -s ../modules/ modules
 
-modules="FastaToGtf CreateFullGtf"
+modules="FastaToGtf CreateFullGtf STAR"
 
 for module_name in $modules
 do
