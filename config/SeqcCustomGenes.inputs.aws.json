@@ -1,0 +1,13 @@
+{
+    "SeqcCustomGenes.genomeReferenceFasta": "s3://dp-lab-home/chunj/seqc-custom-genes/mm38.fa",
+    "SeqcCustomGenes.annotationGtf": "s3://dp-lab-home/chunj/seqc-custom-genes/annotations.gtf",
+    "SeqcCustomGenes.customFastaFiles": [
+        "s3://dp-lab-home/chunj/seqc-custom-genes/GFP.fa",
+        "s3://dp-lab-home/chunj/seqc-custom-genes/tdTomato.fa"
+    ],
+    "SeqcCustomGenes.ensembleIdPrefix": "ENSMUS",
+    "SeqcCustomGenes.ensembleIds": [
+        "00000900001",
+        "00000900002"
+    ]
+}
