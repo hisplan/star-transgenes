@@ -15,6 +15,8 @@ task IndexFasta {
     command <<<
         set -euo pipefail
 
+        # workaround to make it easy for Cromwell to pick up .fa.fai
+        # i.e. work from the current directory where Cromwell put you in
         cp ~{fasta} ~{baseName}.fa
         samtools faidx ~{baseName}.fa
     >>>
@@ -36,7 +38,8 @@ task IndexToGtf {
 
     input {
         File fastaIdx
-        String ensembleId
+        String geneId
+        String transcriptId
     }
 
     String outName = basename(fastaIdx, ".fa.fai") + ".gtf"
@@ -48,11 +51,10 @@ task IndexToGtf {
     command <<<
         set -euo pipefail
 
-        # cat ~{fastaIdx} | python3 /opt/fai2gtf.py | tee ~{outName}
-
         python3 /opt/fai2gtf.py \
             --fai ~{fastaIdx} \
-            --ensembl-id ~{ensembleId} \
+            --gene-id ~{geneId} \
+            --transcript-id ~{transcriptId} \
             | tee ~{outName}
     >>>
 

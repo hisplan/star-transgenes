@@ -6,7 +6,8 @@ workflow FastaToGtf {
 
     input {
         File fasta
-        String ensembleId
+        String geneId
+        String transcriptId
     }
 
     call FastaToGtf.IndexFasta {
@@ -17,7 +18,8 @@ workflow FastaToGtf {
     call FastaToGtf.IndexToGtf {
         input:
             fastaIdx = IndexFasta.out,
-            ensembleId = ensembleId
+            geneId = geneId,
+            transcriptId = transcriptId
     }
 
     output {
