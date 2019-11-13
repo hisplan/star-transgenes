@@ -1,0 +1,13 @@
+{
+    "SeqcCustomGenes.genomeReferenceFasta": "gs://chunj-cromwell/custom-genes/mm38/mm38.fa",
+    "SeqcCustomGenes.annotationGtf": "gs://chunj-cromwell/custom-genes/mm38/annotations.gtf",
+    "SeqcCustomGenes.customFastaFiles": [
+        "gs://chunj-cromwell/custom-genes/GFP.fa",
+        "gs://chunj-cromwell/custom-genes/tdTomato.fa"
+    ],
+    "SeqcCustomGenes.ensembleIdPrefix": "ENSMUSG",
+    "SeqcCustomGenes.ensembleIds": [
+        "00000900001",
+        "00000900002"
+    ]
+}
