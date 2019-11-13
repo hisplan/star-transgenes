@@ -14,6 +14,9 @@ workflow SeqcCustomGenes {
         String ensembleIdPrefix
     }
 
+    # zip FASTA files and Ensemble IDs
+    # pair.left = path to FASTA file
+    # pair.right = path to Ensemble ID (only digits)
     Array[Pair[File, String]] fastaAndEnsembleIds = zip(customFastaFiles, ensembleIds)
 
     scatter (pair in fastaAndEnsembleIds) {
@@ -23,25 +26,14 @@ workflow SeqcCustomGenes {
                 fasta = pair.left
         }
 
+        # G for gene, T for transcript
         call FastaToGtf.IndexToGtf {
             input:
                 fastaIdx = IndexFasta.out,
-                ensembleId = ensembleIdPrefix + pair.right
+                geneId = ensembleIdPrefix + "G" + pair.right,
+                transcriptId = ensembleIdPrefix + "T" + pair.right,
         }
     }
-
-    # scatter (fasta in customFastaFiles) {
-
-    #     call FastaToGtf.IndexFasta {
-    #         input:
-    #             fasta = fasta
-    #     }
-
-    #     call FastaToGtf.IndexToGtf {
-    #         input:
-    #             fastaIdx = IndexFasta.out
-    #     }
-    # }
 
     call CreateFullGtf.CreateFullGtf {
         input:
@@ -49,15 +41,15 @@ workflow SeqcCustomGenes {
             customGtfs = IndexToGtf.out
     }
 
-    # call STAR.GenerateIndex {
-    #     input:
-    #         genomeReferenceFasta = genomeReferenceFasta,
-    #         customFasta = customFastaFiles,
-    #         annotationGtf = annotationGtf
-    # }
+    call STAR.GenerateIndex {
+        input:
+            genomeReferenceFasta = genomeReferenceFasta,
+            customFasta = customFastaFiles,
+            annotationGtf = CreateFullGtf.out
+    }
 
-    # output {
-    #     File newGtf = CreateFullGtf.out
-    #     Array[File] outFiles = GenerateIndex.outFiles
-    # }
+    output {
+        File newGtf = CreateFullGtf.out
+        Array[File] outFiles = GenerateIndex.outFiles
+    }
 }
