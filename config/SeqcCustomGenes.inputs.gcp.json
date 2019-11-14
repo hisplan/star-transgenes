@@ -9,5 +9,14 @@
     "SeqcCustomGenes.ensembleIds": [
         "00000900001",
         "00000900002"
-    ]
+    ],
+    "SeqcCustomGenes.SEQC_disabled": true,    
+    "SeqcCustomGenes.SEQC_version": "0.2.5",
+    "SeqcCustomGenes.SEQC_assay": "ten_x_v2",
+    "SeqcCustomGenes.SEQC_barcodeFiles": "gs://chunj-cromwell/seqc-public/barcodes/ten_x_v2/flat/",
+    "SeqcCustomGenes.SEQC_genomicFastq": "gs://chunj-cromwell/seqc-public/test/ten_x_v2/genomic/",
+    "SeqcCustomGenes.SEQC_barcodeFastq": "gs://chunj-cromwell/seqc-public/test/ten_x_v2/barcode/",
+    "SeqcCustomGenes.SEQC_outputPrefix": "devtest",
+    "SeqcCustomGenes.SEQC_starArguments": "runRNGseed=0",
+    "SeqcCustomGenes.SEQC_email": "jaeyoung.chun@gmail.com"
 }

@@ -1,0 +1,9 @@
+{
+    "pipelineType": "SeqcCustomGenes",
+    "project": "Tp53_Rb_PtenGEMM",
+    "sample": "TKO12_week_1",
+    "owner": "chunj",
+    "destination": "s3://dp-lab-batch/outputs/Tp53_Rb_PtenGEMM/TKO12_week_1",
+    "transfer": "-",
+    "comment": "SEQC custom genes"
+}

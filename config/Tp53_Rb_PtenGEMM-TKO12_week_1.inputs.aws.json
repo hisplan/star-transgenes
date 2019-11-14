@@ -1,0 +1,22 @@
+{
+    "SeqcCustomGenes.genomeReferenceFasta": "s3://dp-lab-home/chunj/seqc-custom-genes/mm38.fa",
+    "SeqcCustomGenes.annotationGtf": "s3://seqc-public/genomes/mm38_long_polya/annotations.gtf",
+    "SeqcCustomGenes.customFastaFiles": [
+        "s3://dp-lab-home/chunj/seqc-custom-genes/EGFP.fa",
+        "s3://dp-lab-home/chunj/seqc-custom-genes/tdTomato.fa"
+    ],
+    "SeqcCustomGenes.ensembleIdPrefix": "ENSMUS",
+    "SeqcCustomGenes.ensembleIds": [
+        "00000900001",
+        "00000900002"
+    ],
+    "SeqcCustomGenes.SEQC_disabled": true,
+    "SeqcCustomGenes.SEQC_version": "0.2.5",
+    "SeqcCustomGenes.SEQC_assay": "ten_x_v2",
+    "SeqcCustomGenes.SEQC_barcodeFiles": "s3://seqc-public/barcodes/ten_x_v2/flat/",
+    "SeqcCustomGenes.SEQC_genomicFastq": "s3://dp-lab-data/collaborators/sawyers/TP53/TKO12_week_1/genomic/",
+    "SeqcCustomGenes.SEQC_barcodeFastq": "s3://dp-lab-data/collaborators/sawyers/TP53/TKO12_week_1/barcode/",
+    "SeqcCustomGenes.SEQC_outputPrefix": "TKO12_week_1",
+    "SeqcCustomGenes.SEQC_starArguments": "runRNGseed=0",
+    "SeqcCustomGenes.SEQC_email": "jaeyoung.chun@gmail.com"
+}
