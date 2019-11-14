@@ -29,10 +29,6 @@ then
     exit 1
 fi
 
-#fixme: remove after dev
-rm -rf SeqcCustomGenes.deps.zip
-zip SeqcCustomGenes.deps.zip modules modules/*
-
 cromwell-tools submit \
     --secrets-file ${service_account_key} \
     --wdl SeqcCustomGenes.wdl \

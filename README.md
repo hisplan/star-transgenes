@@ -17,7 +17,7 @@
 ```bash
 ./submit.sh \
     -k ~/secrets-aws.json \
-    -i ./config/SeqcCustomGenes.inputs.aws.json \
-    -l ./config/SeqcCustomGenes.labels.aws.json \
+    -i ./config/Tp53_Rb_PtenGEMM-TKO12_week_1.inputs.aws.json \
+    -l ./config/Tp53_Rb_PtenGEMM-TKO12_week_1.labels.aws.json \
     -o SeqcCustomGenes.options.aws.json
 ```
