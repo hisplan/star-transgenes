@@ -10,7 +10,7 @@ task SEQC {
         String genomicFastq
         String barcodeFastq
         String starArguments
-        String outputPrefix    
+        String outputPrefix
         String email
 
         Float inputSize = 250
@@ -40,6 +40,7 @@ task SEQC {
 
     output {
         Array[File] outFiles = glob(outputPrefix + "*")
+        File? outLog = "seqc_log.txt"
     }
 
     runtime {
@@ -48,5 +49,36 @@ task SEQC {
         cpu: numCores
         memory: memoryGB + "GB"
         preemptible: 0
+    }
+}
+
+task GetDirectoryName {
+
+    input {
+        String fullPathWithFileName
+    }
+
+    # from: gs://chunj-cromwell/cromwell-execution/SeqcCustomGenes/588c4511-a574-4b10-86ba-fc7567b59671/call-GenerateIndex/glob-20ebd8c9cf25515da3e6ce1213dba1ad/annotations.gtf
+    # to:   gs://chunj-cromwell/cromwell-execution/SeqcCustomGenes/588c4511-a574-4b10-86ba-fc7567b59671/call-GenerateIndex/glob-20ebd8c9cf25515da3e6ce1213dba1ad/
+    command <<<
+        set -euo pipefail
+
+        python - << EOF
+        import os
+
+        print(os.path.dirname("~{fullPathWithFileName}") + "/")
+        EOF
+    >>>
+
+    output {
+        String out = read_string(stdout())
+    }
+
+    # centos 7 comes with python (ubuntu not)
+    # python docker cannot run because ENTRYPOINT issue in Cromwell
+    runtime {
+        docker: "centos:7"
+        cpu: 1
+        memory: "1 GB"
     }
 }
