@@ -13,7 +13,7 @@ task GenerateIndex {
 
 
     # m5.12xlarge = 45
-    Int numCores = 8
+    Int numCores = 16
 
     String outputDir = "out"
 
@@ -39,9 +39,9 @@ task GenerateIndex {
 
     runtime {
         docker: dockerImage
-        disks: "local-disk " + ceil(20 * (if inputSize < 1 then 1 else inputSize )) + " HDD"
+        disks: "local-disk " + ceil(30 * (if inputSize < 1 then 1 else inputSize)) + " HDD"
         cpu: numCores
-        memory: "32 GB"
+        memory: "64 GB"
         preemptible: 0
     }
 }
