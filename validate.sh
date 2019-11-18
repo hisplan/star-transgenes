@@ -3,4 +3,4 @@
 java -jar ~/Applications/womtool.jar \
     validate \
     SeqcCustomGenes.wdl \
-    --inputs ./config/SeqcCustomGenes.inputs.aws.json
+    --inputs ./config/SeqcCustomGenes.inputs.gcp.json
