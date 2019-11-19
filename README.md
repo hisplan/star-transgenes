@@ -1,5 +1,15 @@
 # SEQC Custom Genes
 
+## Input Requirements
+
+The last line of the FASTA file for each gene must be empty line (i.e. each sequence line must end with `\n`)
+
+## Outputs
+
+- STAR index and `annotations.gtf` for SEQC
+- SEQC outputs if specified
+- FASTA/Index file for IGV visualization (`fa.gz` and `fa.gz.gzi`)
+
 ## How to Test
 
 ### GCP
