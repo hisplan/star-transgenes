@@ -1,0 +1,7 @@
+{
+    "GenomeForIgv.genomeReferenceFasta": "gs://chunj-cromwell/custom-genes/mm38/mm38.fa",
+    "GenomeForIgv.customFastaFiles": [
+        "gs://chunj-cromwell/custom-genes/GFP.fa",
+        "gs://chunj-cromwell/custom-genes/tdTomato.fa"
+    ]
+}
