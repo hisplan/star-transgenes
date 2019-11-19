@@ -4,6 +4,7 @@ import "modules/FastaToGtf.wdl" as FastaToGtf
 import "modules/CreateFullGtf.wdl" as CreateFullGtf
 import "modules/STAR.wdl" as STAR
 import "modules/SEQC.wdl" as SEQC
+import "modules/GenomeForIgv.wdl" as GenomeForIgv
 
 workflow SeqcCustomGenes {
 
@@ -47,6 +48,17 @@ workflow SeqcCustomGenes {
         }
     }
 
+    call GenomeForIgv.ConcatenateFastas {
+        input:
+            genomeReferenceFasta = genomeReferenceFasta,
+            customFastaFiles = customFastaFiles
+    }
+
+    call GenomeForIgv.IndexCompressedFasta {
+        input:
+            compressedFasta = ConcatenateFastas.out
+    }
+
     call CreateFullGtf.CreateFullGtf {
         input:
             normalFullGtf = annotationGtf,
@@ -85,5 +97,8 @@ workflow SeqcCustomGenes {
     output {
         Array[File] outStarFiles = GenerateIndex.outFiles
         Array[File]? outSeqcFiles = SEQC.outFiles
+        File outFasta = ConcatenateFastas.out
+        File outFastaGzi = IndexCompressedFasta.outGzi
+        File outFastaFai = IndexCompressedFasta.outFai
     }
 }
