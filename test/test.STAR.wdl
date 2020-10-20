@@ -8,13 +8,15 @@ workflow STAR {
         File genomeReferenceFasta
         Array[File] customFasta
         File annotationGtf
+        Int sjdbOverhang
     }
 
     call STAR.GenerateIndex {
         input:
             genomeReferenceFasta = genomeReferenceFasta,
             customFasta = customFasta,
-            annotationGtf = annotationGtf
+            annotationGtf = annotationGtf,
+            sjdbOverhang = sjdbOverhang
     }
 
     output {

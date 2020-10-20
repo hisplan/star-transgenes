@@ -6,9 +6,10 @@ task GenerateIndex {
         File genomeReferenceFasta
         Array[File] customFasta
         File annotationGtf
+        Int sjdbOverhang
     }
 
-    String dockerImage = "hisplan/cromwell-star:2.5.3a"
+    String dockerImage = "hisplan/cromwell-star:2.7.6a"
     Float inputSize = size(genomeReferenceFasta, "GiB") + size(annotationGtf, "GiB") + size(customFasta, "GiB")
 
 
@@ -27,7 +28,9 @@ task GenerateIndex {
             --genomeDir ~{outputDir} \
             --genomeFastaFiles ~{genomeReferenceFasta} ~{sep=" " customFasta} \
             --sjdbGTFfile ~{annotationGtf} \
+            --sjdbOverhang ~{sjdbOverhang} \
             --runThreadN ~{numCores}
+
 
         # to make it SEQC compatible
         cp ~{annotationGtf} out/annotations.gtf
@@ -41,7 +44,7 @@ task GenerateIndex {
         docker: dockerImage
         disks: "local-disk " + ceil(30 * (if inputSize < 1 then 1 else inputSize)) + " HDD"
         cpu: numCores
-        memory: "64 GB"
+        memory: "128 GB"
         preemptible: 0
     }
 }
