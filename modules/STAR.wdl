@@ -7,14 +7,15 @@ task GenerateIndex {
         Array[File] customFasta
         File annotationGtf
         Int sjdbOverhang
+        String starVersion = "2.5.3a"
     }
 
-    String dockerImage = "hisplan/cromwell-star:2.7.6a"
+    # String dockerImage = "hisplan/cromwell-star:2.7.6a"
+    String dockerImage = "hisplan/cromwell-star:" + starVersion
     Float inputSize = size(genomeReferenceFasta, "GiB") + size(annotationGtf, "GiB") + size(customFasta, "GiB")
 
-
     # m5.12xlarge = 45
-    Int numCores = 16
+    Int numCores = 15
 
     String outputDir = "out"
 
@@ -44,7 +45,7 @@ task GenerateIndex {
         docker: dockerImage
         disks: "local-disk " + ceil(30 * (if inputSize < 1 then 1 else inputSize)) + " HDD"
         cpu: numCores
-        memory: "128 GB"
+        memory: "100 GB"
         preemptible: 0
     }
 }
