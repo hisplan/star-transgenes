@@ -16,6 +16,7 @@ workflow SeqcCustomGenes {
         String ensembleIdPrefix
 
         Int sjdbOverhang = 101
+        String starVersion
 
         # SEQC-related parameters
         Boolean SEQC_disabled = false
@@ -72,7 +73,8 @@ workflow SeqcCustomGenes {
             genomeReferenceFasta = genomeReferenceFasta,
             customFasta = customFastaFiles,
             annotationGtf = CreateFullGtf.out,
-            sjdbOverhang = sjdbOverhang
+            sjdbOverhang = sjdbOverhang,
+            starVersion = starVersion
     }
 
     # run only is not disabled

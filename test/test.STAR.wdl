@@ -9,6 +9,7 @@ workflow STAR {
         Array[File] customFasta
         File annotationGtf
         Int sjdbOverhang
+        String starVersion
     }
 
     call STAR.GenerateIndex {
@@ -16,7 +17,8 @@ workflow STAR {
             genomeReferenceFasta = genomeReferenceFasta,
             customFasta = customFasta,
             annotationGtf = annotationGtf,
-            sjdbOverhang = sjdbOverhang
+            sjdbOverhang = sjdbOverhang,
+            starVersion = starVersion
     }
 
     output {

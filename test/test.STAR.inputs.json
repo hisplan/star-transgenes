@@ -5,5 +5,6 @@
         "gs://chunj-cromwell/custom-genes/tdTomato.fa"
     ],
     "STAR.annotationGtf": "gs://chunj-cromwell/cromwell-execution/CreateFullGtf/93bf5305-6cb5-4cc3-83ba-bc1779d7ce16/call-CreateFullGtf/custom-annotations.gtf",
-    "STAR.sjdbOverhang": 101
+    "STAR.sjdbOverhang": 101,
+    "STAR.starVersion": "2.5.3a"
 }

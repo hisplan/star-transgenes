@@ -10,7 +10,8 @@
         "00000900001",
         "00000900002"
     ],
-    "SeqcCustomGenes.SEQC_disabled": true,    
+    "SeqcCustomGenes.starVersion": "2.5.3a",
+    "SeqcCustomGenes.SEQC_disabled": true,
     "SeqcCustomGenes.SEQC_version": "0.2.5",
     "SeqcCustomGenes.SEQC_assay": "ten_x_v2",
     "SeqcCustomGenes.SEQC_barcodeFiles": "gs://chunj-cromwell/seqc-public/barcodes/ten_x_v2/flat/",
