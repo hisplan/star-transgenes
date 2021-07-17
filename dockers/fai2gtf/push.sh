@@ -1,5 +1,5 @@
 #!/bin/bash
 
 docker login
-docker tag cromwell-fai2gtf:0.1 hisplan/cromwell-fai2gtf:0.1
-docker push hisplan/cromwell-fai2gtf:0.1
+docker tag cromwell-fai2gtf:0.2.0 hisplan/cromwell-fai2gtf:0.2.0
+docker push hisplan/cromwell-fai2gtf:0.2.0
