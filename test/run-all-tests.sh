@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-modules="GenomeForIgv FastaToGtf CreateFullGtf STAR SEQC"
+modules="FilterBiotypes GenomeForIgv FastaToGtf CreateFullGtf STAR SEQC"
 
 for module_name in $modules
 do

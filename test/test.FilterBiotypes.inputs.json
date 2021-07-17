@@ -1,0 +1,15 @@
+{
+    "FilterBiotypes.gtf": "s3://dp-lab-gwf-core/cromwell-execution/SeqcCustomGenes/0eaf4a69-1105-46ef-8a18-54f442493fe9/call-CreateFullGtf/custom-annotations.gtf",
+    "FilterBiotypes.biotypes": [
+        "protein_coding",
+        "lncRNA",
+        "IG_V_gene",
+        "IG_C_gene",
+        "IG_J_gene",
+        "TR_C_gene",
+        "TR_J_gene",
+        "TR_V_gene",
+        "TR_D_gene",
+        "IG_D_gene"
+    ]
+}
