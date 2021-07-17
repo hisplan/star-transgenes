@@ -11,6 +11,19 @@
         "00000900002"
     ],
     "SeqcCustomGenes.starVersion": "2.5.3a",
+    "SeqcCustomGenes.biotypes": [
+        "protein_coding",
+        "lincRNA",
+        "antisense",
+        "IG_V_gene",
+        "IG_D_gene",
+        "IG_J_gene",
+        "IG_C_gene",
+        "TR_V_gene",
+        "TR_D_gene",
+        "TR_J_gene",
+        "TR_C_gene"
+    ],
     "SeqcCustomGenes.SEQC_disabled": true,
     "SeqcCustomGenes.SEQC_version": "0.2.5",
     "SeqcCustomGenes.SEQC_assay": "ten_x_v2",
