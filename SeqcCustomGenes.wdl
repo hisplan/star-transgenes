@@ -5,6 +5,7 @@ import "modules/CreateFullGtf.wdl" as CreateFullGtf
 import "modules/STAR.wdl" as STAR
 import "modules/SEQC.wdl" as SEQC
 import "modules/GenomeForIgv.wdl" as GenomeForIgv
+import "modules/FilterBiotypes.wdl" as FilterBiotypes
 
 workflow SeqcCustomGenes {
 
@@ -17,6 +18,7 @@ workflow SeqcCustomGenes {
 
         Int sjdbOverhang = 101
         String starVersion
+        Array[String] biotypes
 
         # SEQC-related parameters
         Boolean SEQC_disabled = false
@@ -68,11 +70,18 @@ workflow SeqcCustomGenes {
             customGtfs = IndexToGtf.out
     }
 
+    # add `transgene` to the user supplied biotypes
+    call FilterBiotypes.FilterBiotypes {
+        input:
+            biotypes = flatten([biotypes, ["transgene"]]),
+            gtf = CreateFullGtf.out
+    }
+
     call STAR.GenerateIndex {
         input:
             genomeReferenceFasta = genomeReferenceFasta,
             customFasta = customFastaFiles,
-            annotationGtf = CreateFullGtf.out,
+            annotationGtf = FilterBiotypes.outGtf,
             sjdbOverhang = sjdbOverhang,
             starVersion = starVersion
     }
@@ -105,5 +114,6 @@ workflow SeqcCustomGenes {
         File outFasta = ConcatenateFastas.out
         File outFastaGzi = IndexCompressedFasta.outGzi
         File outFastaFai = IndexCompressedFasta.outFai
+        File outFilterLog = FilterBiotypes.outLog
     }
 }
