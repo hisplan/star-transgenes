@@ -44,7 +44,7 @@ task IndexToGtf {
 
     String outName = basename(fastaIdx, ".fa.fai") + ".gtf"
 
-    String dockerImage = "hisplan/cromwell-fai2gtf:0.1"
+    String dockerImage = "hisplan/cromwell-fai2gtf:0.2.0"
     Float inputSize = size(fastaIdx, "GiB")
     Int numCores = 1
 
