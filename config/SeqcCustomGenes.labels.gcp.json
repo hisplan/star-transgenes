@@ -1,9 +1,0 @@
-{
-    "pipelineType": "SeqcCustomGenes",
-    "project": "Project 123",
-    "sample": "S316",
-    "owner": "chunj",
-    "destination": "gs://chunj-cromwell/outputs/SeqcCustomGenes",
-    "transfer": "-",
-    "comment": "SEQC custom genes"
-}
