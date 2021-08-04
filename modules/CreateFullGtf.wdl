@@ -22,7 +22,7 @@ task CreateFullGtf {
     }
 
     runtime {
-        docker: "ubuntu:18.04"
+        docker: "ubuntu:20.04"
         disks: "local-disk " + ceil(2 * (if inputSize < 1 then 1 else inputSize )) + " HDD"
         cpu: numCores
         memory: "8 GB"
