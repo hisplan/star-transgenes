@@ -19,6 +19,9 @@ workflow SEQC {
         String starArguments
         String outputPrefix
         String email
+
+        # docker-related
+        String dockerRegistry
     }
 
     call SEQC.SEQC {
@@ -31,6 +34,7 @@ workflow SEQC {
             barcodeFastq = barcodeFastq,
             starArguments = starArguments,
             outputPrefix = outputPrefix,
-            email = email
+            email = email,
+            dockerRegistry = dockerRegistry
     }
 }

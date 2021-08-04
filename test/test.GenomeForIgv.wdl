@@ -7,17 +7,22 @@ workflow GenomeForIgv {
     input {
         File genomeReferenceFasta
         Array[File] customFastaFiles
+
+        # docker-related
+        String dockerRegistry
     }
 
     call GenomeForIgv.ConcatenateFastas {
         input:
             genomeReferenceFasta = genomeReferenceFasta,
-            customFastaFiles = customFastaFiles
+            customFastaFiles = customFastaFiles,
+            dockerRegistry = dockerRegistry
     }
 
     call GenomeForIgv.IndexCompressedFasta {
         input:
-            compressedFasta = ConcatenateFastas.out
+            compressedFasta = ConcatenateFastas.out,
+            dockerRegistry = dockerRegistry
     }
 
     output {

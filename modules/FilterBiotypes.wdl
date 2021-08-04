@@ -5,9 +5,12 @@ task FilterBiotypes {
     input {
         Array[String] biotypes
         File gtf
+
+        # docker-related
+        String dockerRegistry
     }
 
-    String dockerImage = "hisplan/gtf-utils:0.0.4"
+    String dockerImage = dockerRegistry + "/gtf-utils:0.0.5"
     Float inputSize = size(gtf, "GiB")
 
     command <<<

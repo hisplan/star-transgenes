@@ -8,18 +8,23 @@ workflow FastaToGtf {
         File fasta
         String geneId
         String transcriptId
+
+        # docker-related
+        String dockerRegistry
     }
 
     call FastaToGtf.IndexFasta {
         input:
-            fasta = fasta
+            fasta = fasta,
+            dockerRegistry = dockerRegistry
     }
 
     call FastaToGtf.IndexToGtf {
         input:
             fastaIdx = IndexFasta.out,
             geneId = geneId,
-            transcriptId = transcriptId
+            transcriptId = transcriptId,
+            dockerRegistry = dockerRegistry
     }
 
     output {

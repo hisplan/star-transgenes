@@ -7,13 +7,17 @@ workflow FilterBiotypes {
     input {
         Array[String] biotypes
         File gtf
+
+        # docker-related
+        String dockerRegistry
     }
 
     # add `transgene` to the user supplied biotypes
     call FilterBiotypes.FilterBiotypes {
         input:
             biotypes = flatten([biotypes, ["transgene"]]),
-            gtf = gtf
+            gtf = gtf,
+            dockerRegistry = dockerRegistry
     }
 
     output {

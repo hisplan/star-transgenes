@@ -30,6 +30,9 @@ workflow SeqcCustomGenes {
         String SEQC_starArguments
         String SEQC_outputPrefix
         String SEQC_email
+
+        # docker-related
+        String dockerRegistry
     }
 
     # zip FASTA files and Ensemble IDs
@@ -41,7 +44,8 @@ workflow SeqcCustomGenes {
 
         call FastaToGtf.IndexFasta {
             input:
-                fasta = pair.left
+                fasta = pair.left,
+                dockerRegistry = dockerRegistry
         }
 
         # G for gene, T for transcript
@@ -50,18 +54,21 @@ workflow SeqcCustomGenes {
                 fastaIdx = IndexFasta.out,
                 geneId = ensembleIdPrefix + "G" + pair.right,
                 transcriptId = ensembleIdPrefix + "T" + pair.right,
+                dockerRegistry = dockerRegistry
         }
     }
 
     call GenomeForIgv.ConcatenateFastas {
         input:
             genomeReferenceFasta = genomeReferenceFasta,
-            customFastaFiles = customFastaFiles
+            customFastaFiles = customFastaFiles,
+            dockerRegistry = dockerRegistry
     }
 
     call GenomeForIgv.IndexCompressedFasta {
         input:
-            compressedFasta = ConcatenateFastas.out
+            compressedFasta = ConcatenateFastas.out,
+            dockerRegistry = dockerRegistry
     }
 
     call CreateFullGtf.CreateFullGtf {
@@ -74,7 +81,8 @@ workflow SeqcCustomGenes {
     call FilterBiotypes.FilterBiotypes {
         input:
             biotypes = flatten([biotypes, ["transgene"]]),
-            gtf = CreateFullGtf.out
+            gtf = CreateFullGtf.out,
+            dockerRegistry = dockerRegistry
     }
 
     call STAR.GenerateIndex {
@@ -83,7 +91,8 @@ workflow SeqcCustomGenes {
             customFasta = customFastaFiles,
             annotationGtf = FilterBiotypes.outGtf,
             sjdbOverhang = sjdbOverhang,
-            starVersion = starVersion
+            starVersion = starVersion,
+            dockerRegistry = dockerRegistry
     }
 
     # run only is not disabled
@@ -104,7 +113,8 @@ workflow SeqcCustomGenes {
                 barcodeFastq = SEQC_barcodeFastq,
                 starArguments = SEQC_starArguments,
                 outputPrefix = SEQC_outputPrefix,
-                email = SEQC_email
+                email = SEQC_email,
+                dockerRegistry = dockerRegistry
         }
     }
 

@@ -10,6 +10,9 @@ workflow STAR {
         File annotationGtf
         Int sjdbOverhang
         String starVersion
+
+        # docker-related
+        String dockerRegistry
     }
 
     call STAR.GenerateIndex {
@@ -18,7 +21,8 @@ workflow STAR {
             customFasta = customFasta,
             annotationGtf = annotationGtf,
             sjdbOverhang = sjdbOverhang,
-            starVersion = starVersion
+            starVersion = starVersion,
+            dockerRegistry = dockerRegistry
     }
 
     output {

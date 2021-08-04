@@ -16,9 +16,12 @@ task SEQC {
         Float inputSize = 250
         Int numCores = 8
         Int memoryGB = 64
+
+        # docker-related
+        String dockerRegistry
     }
 
-    String dockerImage = "hisplan/cromwell-seqc:" + version
+    String dockerImage = dockerRegistry + "/cromwell-seqc:" + version
 
     command <<<
         set -euo pipefail

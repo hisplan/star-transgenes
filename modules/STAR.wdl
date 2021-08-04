@@ -8,13 +8,16 @@ task GenerateIndex {
         File annotationGtf
         Int sjdbOverhang
         String starVersion
+
+        # docker-related
+        String dockerRegistry
     }
 
     parameter_meta {
         starVersion: "e.g. 2.5.3a, 2.7.6a"
     }
 
-    String dockerImage = "hisplan/cromwell-star:" + starVersion
+    String dockerImage = dockerRegistry + "/cromwell-star:" + starVersion
     Float inputSize = size(genomeReferenceFasta, "GiB") + size(annotationGtf, "GiB") + size(customFasta, "GiB")
 
     # m5.12xlarge = 45

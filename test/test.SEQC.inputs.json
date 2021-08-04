@@ -7,5 +7,6 @@
     "SEQC.barcodeFastq": "s3://seqc-public/test/ten_x_v2/barcode/",
     "SEQC.outputPrefix": "devtest",
     "SEQC.starArguments": "runRNGseed=0",
-    "SEQC.email": "jaeyoung.chun@gmail.com"
+    "SEQC.email": "jaeyoung.chun@gmail.com",
+    "SEQC.dockerRegistry": "quay.io/hisplan"
 }

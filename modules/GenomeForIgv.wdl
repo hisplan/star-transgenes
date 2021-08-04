@@ -5,12 +5,16 @@ task ConcatenateFastas {
     input {
         File genomeReferenceFasta
         Array[File] customFastaFiles
+
+        # docker-related
+        String dockerRegistry
     }
 
-    String outName = "customGenome.fa"
-    String dockerImage = "hisplan/htslib:1.9"
+    String dockerImage = dockerRegistry + "/htslib:1.9"
     Float inputSize = size(genomeReferenceFasta, "GiB") + size(customFastaFiles, "GiB")
     Int numCores = 4
+
+    String outName = "customGenome.fa"
 
     command <<<
         set -euo pipefail
@@ -39,13 +43,16 @@ task IndexCompressedFasta {
 
     input {
         File compressedFasta
+
+        # docker-related
+        String dockerRegistry
     }
 
-    String baseName = basename(compressedFasta, ".fa.gz")
-
-    String dockerImage = "hisplan/cromwell-samtools:1.9"
+    String dockerImage = dockerRegistry + "/cromwell-samtools:1.9"
     Float inputSize = size(compressedFasta, "GiB")
     Int numCores = 1
+
+    String baseName = basename(compressedFasta, ".fa.gz")
 
     command <<<
         set -euo pipefail

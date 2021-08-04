@@ -11,5 +11,6 @@
         "TR_V_gene",
         "TR_D_gene",
         "IG_D_gene"
-    ]
+    ],
+    "FilterBiotypes.dockerRegistry": "quay.io/hisplan"
 }

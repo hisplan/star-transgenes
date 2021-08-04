@@ -4,13 +4,16 @@ task IndexFasta {
 
     input {
         File fasta
+
+        # docker-related
+        String dockerRegistry
     }
 
-    String baseName = basename(fasta, ".fa")
-
-    String dockerImage = "hisplan/cromwell-samtools:1.9"
+    String dockerImage = dockerRegistry + "/cromwell-samtools:1.9"
     Float inputSize = size(fasta, "GiB")
     Int numCores = 1
+
+    String baseName = basename(fasta, ".fa")
 
     command <<<
         set -euo pipefail
@@ -40,13 +43,16 @@ task IndexToGtf {
         File fastaIdx
         String geneId
         String transcriptId
+
+        # docker-related
+        String dockerRegistry
     }
 
-    String outName = basename(fastaIdx, ".fa.fai") + ".gtf"
-
-    String dockerImage = "hisplan/cromwell-fai2gtf:0.2.0"
+    String dockerImage = dockerRegistry + "/cromwell-fai2gtf:0.2.0"
     Float inputSize = size(fastaIdx, "GiB")
     Int numCores = 1
+
+    String outName = basename(fastaIdx, ".fa.fai") + ".gtf"
 
     command <<<
         set -euo pipefail

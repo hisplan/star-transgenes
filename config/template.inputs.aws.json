@@ -38,5 +38,6 @@
     "SeqcCustomGenes.SEQC_barcodeFastq": "",
     "SeqcCustomGenes.SEQC_outputPrefix": "",
     "SeqcCustomGenes.SEQC_starArguments": "",
-    "SeqcCustomGenes.SEQC_email": ""
+    "SeqcCustomGenes.SEQC_email": "",
+    "SeqcCustomGenes.dockerRegistry": "quay.io/hisplan"
 }

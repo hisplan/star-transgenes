@@ -3,5 +3,6 @@
     "GenomeForIgv.customFastaFiles": [
         "gs://chunj-cromwell/custom-genes/GFP.fa",
         "gs://chunj-cromwell/custom-genes/tdTomato.fa"
-    ]
+    ],
+    "GenomeForIgv.dockerRegistry": "quay.io/hisplan"
 }
