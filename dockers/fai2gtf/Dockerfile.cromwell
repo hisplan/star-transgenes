@@ -9,5 +9,5 @@ COPY fai2gtf.py /opt/fai2gtf.py
 
 WORKDIR /opt
 
-ENTRYPOINT ["python3 fai2gtf.py"]
-CMD ["--help"]
+# ENTRYPOINT ["python3 fai2gtf.py"]
+# CMD ["--help"]

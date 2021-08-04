@@ -1,5 +1,8 @@
-#!/bin/bash
+#!/bin/bash -e
 
-docker login
-docker tag cromwell-fai2gtf:0.2.0 hisplan/cromwell-fai2gtf:0.2.0
-docker push hisplan/cromwell-fai2gtf:0.2.0
+source config.sh
+
+echo "${registry}/${image_name}:${version}"
+
+scing push --image=${registry}/${image_name}:${version}
+scing push --image=${registry}/cromwell-${image_name}:${version}
