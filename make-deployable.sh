@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 wf_name="seqc-custom-genes"
-version="0.0.5"
+version="0.0.6"
 files="submit.sh SeqcCustomGenes.deps.zip SeqcCustomGenes.wdl SeqcCustomGenes.options.aws.json"
 dest="$HOME/scing/bin"
 
