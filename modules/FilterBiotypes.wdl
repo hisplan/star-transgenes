@@ -10,7 +10,7 @@ task FilterBiotypes {
         String dockerRegistry
     }
 
-    String dockerImage = dockerRegistry + "/gtf-utils:0.0.5"
+    String dockerImage = dockerRegistry + "/gtf-utils:0.0.6"
     Float inputSize = size(gtf, "GiB")
 
     command <<<
