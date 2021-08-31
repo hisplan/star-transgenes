@@ -3,11 +3,10 @@ version 1.0
 import "modules/FastaToGtf.wdl" as FastaToGtf
 import "modules/CreateFullGtf.wdl" as CreateFullGtf
 import "modules/STAR.wdl" as STAR
-import "modules/SEQC.wdl" as SEQC
 import "modules/GenomeForIgv.wdl" as GenomeForIgv
 import "modules/FilterBiotypes.wdl" as FilterBiotypes
 
-workflow SeqcCustomGenes {
+workflow StarTransgenes {
 
     input {
         File genomeReferenceFasta
@@ -19,17 +18,6 @@ workflow SeqcCustomGenes {
         Int sjdbOverhang = 101
         String starVersion
         Array[String] biotypes
-
-        # SEQC-related parameters
-        Boolean SEQC_disabled = false
-        String SEQC_version
-        String SEQC_assay
-        String SEQC_barcodeFiles
-        String SEQC_genomicFastq
-        String SEQC_barcodeFastq
-        String SEQC_starArguments
-        String SEQC_outputPrefix
-        String SEQC_email
 
         # docker-related
         String dockerRegistry
@@ -95,32 +83,8 @@ workflow SeqcCustomGenes {
             dockerRegistry = dockerRegistry
     }
 
-    # run only is not disabled
-    if (SEQC_disabled == false) {
-        # hack: SEQC only accepts a directory name for where annotations.gtf is placed
-        call SEQC.GetDirectoryName {
-            input:
-                fullPathWithFileName = GenerateIndex.outFiles[0]
-        }
-
-        call SEQC.SEQC {
-            input:
-                version = SEQC_version,
-                assay = SEQC_assay,
-                index = GetDirectoryName.out,
-                barcodeFiles = SEQC_barcodeFiles,
-                genomicFastq = SEQC_genomicFastq,
-                barcodeFastq = SEQC_barcodeFastq,
-                starArguments = SEQC_starArguments,
-                outputPrefix = SEQC_outputPrefix,
-                email = SEQC_email,
-                dockerRegistry = dockerRegistry
-        }
-    }
-
     output {
         Array[File] outStarFiles = GenerateIndex.outFiles
-        Array[File]? outSeqcFiles = SEQC.outFiles
         File outFasta = ConcatenateFastas.out
         File outFastaGzi = IndexCompressedFasta.outGzi
         File outFastaFai = IndexCompressedFasta.outFai

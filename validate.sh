@@ -2,5 +2,5 @@
 
 java -jar ~/Applications/womtool.jar \
     validate \
-    SeqcCustomGenes.wdl \
-    --inputs ./config/template.inputs.aws.json
+    StarTransgenes.wdl \
+    --inputs ./config/template.inputs.json

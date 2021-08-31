@@ -1,8 +1,8 @@
 #!/bin/bash -e
 
-wf_name="seqc-custom-genes"
-version="0.0.6"
-files="submit.sh SeqcCustomGenes.deps.zip SeqcCustomGenes.wdl SeqcCustomGenes.options.aws.json"
+wf_name="star-transgenes"
+version="0.0.7"
+files="submit.sh StarTransgenes.deps.zip StarTransgenes.wdl StarTransgenes.options.aws.json config/template.*.json"
 dest="$HOME/scing/bin"
 
 usage()
@@ -36,7 +36,7 @@ mkdir -p ${dest}
 # create a temporary directory and copy files
 path_workdir=`mktemp -d`
 mkdir -p ${path_workdir}/${wf_name}-${version}
-cp ${files} ${path_workdir}/${wf_name}-${version}/
+rsync -Rv ${files} ${path_workdir}/${wf_name}-${version}/
 
 # tar-gzip
 cd ${path_workdir}

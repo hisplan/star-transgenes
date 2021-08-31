@@ -1,9 +1,0 @@
-{
-    "pipelineType": "SeqcCustomGenes",
-    "project": "Mouse GBM Single Cell",
-    "sample": "QPP,NG2-231",
-    "owner": "chunj",
-    "destination": "s3://dp-lab-data/collaborators/luisparada/MouseGbmsc/Transgenes/Genome",
-    "transfer": "skip",
-    "comment": "Mouse GBM Single Cell"
-}

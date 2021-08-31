@@ -1,0 +1,34 @@
+{
+    "StarTransgenes.genomeReferenceFasta": "s3://dp-lab-home/chunj/seqc-custom-genes/Ensembl-85ish/mm38.fa",
+    "StarTransgenes.annotationGtf": "s3://seqc-public/genomes/mm38_long_polya/annotations.gtf",
+    "StarTransgenes.customFastaFiles": [
+        "s3://dp-lab-data/.../transgenes/CreERTM.fa",
+        "s3://dp-lab-data/.../transgenes/tdTomato.fa",
+        "s3://dp-lab-data/.../transgenes/WPRE.fa",
+        "s3://dp-lab-data/.../transgenes/eGFP.fa",
+        "s3://dp-lab-data/.../transgenes/hDTR.fa"
+    ],
+    "StarTransgenes.ensembleIdPrefix": "ENSMUS",
+    "StarTransgenes.ensembleIds": [
+        "00009000001",
+        "00009000002",
+        "00009000003",
+        "00009000004",
+        "00009000005"
+    ],
+    "StarTransgenes.starVersion": "2.5.3a",
+    "StarTransgenes.biotypes": [
+        "protein_coding",
+        "lincRNA",
+        "antisense",
+        "IG_V_gene",
+        "IG_D_gene",
+        "IG_J_gene",
+        "IG_C_gene",
+        "TR_V_gene",
+        "TR_D_gene",
+        "TR_J_gene",
+        "TR_C_gene"
+    ],
+    "StarTransgenes.dockerRegistry": "quay.io/hisplan"
+}
