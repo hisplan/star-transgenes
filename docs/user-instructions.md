@@ -1,4 +1,4 @@
-# SEQC Transgenes
+# STAR Transgenes
 
 ## Input FASTA File Requirements
 
