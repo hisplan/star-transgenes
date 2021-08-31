@@ -3,7 +3,7 @@
 #hack: get dependency set up
 ln -s ../modules/ modules
 
-modules="FilterBiotypes GenomeForIgv FastaToGtf CreateFullGtf STAR SEQC"
+modules="FilterBiotypes GenomeForIgv FastaToGtf CreateFullGtf STAR"
 
 for module_name in $modules
 do
