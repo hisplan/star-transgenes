@@ -46,35 +46,43 @@ Only biotypes specified in `StarTransgenes.biotypes` will be retained from the i
 
 #### References
 
-You need to specify the standard reference genome and gene annotation file:
+You need to specify the standard reference genome and gene annotation file in `inputs.json`:
 
-Ensembl 85ish (Human):
+**Ensembl 85 (Human)**
 
-```json
-"StarTransgenes.genomeReferenceFasta": "s3://dp-lab-home/chunj/seqc-custom-genes/Ensembl-85ish/hg38.fa",
-"StarTransgenes.annotationGtf": "s3://seqc-public/genomes/hg38_long_polya/annotations.gtf",
-```
+Key                                    | S3 URI
+-------------------------------------- | --------------------------------------------------------------
+`StarTransgenes.genomeReferenceFasta`  | `s3://seqc-public/genomes/hg38_long_polya/homo_sapiens.fa`
+`StarTransgenes.annotationGtf`         | `s3://seqc-public/genomes/hg38_long_polya/annotations.gtf`
 
-Ensembl 85ish (Mouse):
+This GTF is a pre-filtered annotation.
 
-```json
-"StarTransgenes.genomeReferenceFasta": "s3://dp-lab-home/chunj/seqc-custom-genes/Ensembl-85ish/mm38.fa",
-"StarTransgenes.annotationGtf": "s3://seqc-public/genomes/mm38_long_polya/annotations.gtf",
-```
+**Ensembl 87 (Mouse)**
 
-Ensembl 100 (Human):
+Key                                    | S3 URI
+-------------------------------------- | --------------------------------------------------------------
+`StarTransgenes.genomeReferenceFasta`  | `s3://seqc-public/genomes/mm38_long_polya/mus_musculus.fa`
+`StarTransgenes.annotationGtf`         | `s3://seqc-public/genomes/mm38_long_polya/annotations.gtf`
 
-```json
-"StarTransgenes.genomeReferenceFasta": "s3://dp-lab-home/chunj/seqc-custom-genes/Ensembl-100/homo_sapiens.fa",
-"StarTransgenes.annotationGtf": "s3://dp-lab-home/chunj/seqc-custom-genes/Ensembl-100/homo_sapiens.gtf",
-```
+This GTF is a pre-filtered annotation.
 
-Ensembl 100 (Mouse):
+**Ensembl 100 (Human)**
 
-```json
-"StarTransgenes.genomeReferenceFasta": "s3://dp-lab-home/chunj/seqc-custom-genes/Ensembl-100/mus_musculus.fa",
-"StarTransgenes.annotationGtf": "s3://dp-lab-home/chunj/seqc-custom-genes/Ensembl-100/mus_musculus.gtf",
-```
+Key                                    | S3 URI
+-------------------------------------- | --------------------------------------------------------------
+`StarTransgenes.genomeReferenceFasta`  | `s3://seqc-public/genomes/GRCh38-Ensembl-100/homo_sapiens.fa`
+`StarTransgenes.annotationGtf`         | `s3://seqc-public/genomes/GRCh38-Ensembl-100/annotations.gtf`
+
+This GTF is a pre-filtered annotation.
+
+**Ensembl 100 (Mouse)**
+
+Key                                    | S3 URI
+-------------------------------------- | --------------------------------------------------------------
+`StarTransgenes.genomeReferenceFasta`  | `s3://seqc-public/genomes/GRCm38-Ensembl-100/mus_musculus.fa`
+`StarTransgenes.annotationGtf`         | `s3://seqc-public/genomes/GRCm38-Ensembl-100/annotations.gtf`
+
+This GTF is a pre-filtered annotation.
 
 ## Submit Your Job
 

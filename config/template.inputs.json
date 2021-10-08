@@ -1,5 +1,5 @@
 {
-    "StarTransgenes.genomeReferenceFasta": "s3://dp-lab-home/chunj/seqc-custom-genes/Ensembl-85ish/mm38.fa",
+    "StarTransgenes.genomeReferenceFasta": "s3://seqc-public/genomes/mm38_long_polya/mus_musculus.fa",
     "StarTransgenes.annotationGtf": "s3://seqc-public/genomes/mm38_long_polya/annotations.gtf",
     "StarTransgenes.customFastaFiles": [
         "s3://dp-lab-data/.../transgenes/CreERTM.fa",
