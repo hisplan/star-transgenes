@@ -1,7 +1,7 @@
 # wdl-transgenes
 
 - Creating a transgene-included reference package for Cell Ranger
-- Creating a transgene-included genome index for the STAR aligner
+- Creating a transgene-included genome index for STAR Aligner
 
 ## License
 
@@ -20,6 +20,11 @@ You need two files - one inputs file and one labels file. Use the following exam
 
 ### Inputs
 
+Each key in the inputs JSON must have either one of the following prefixes:
+
+- For Cell Ranegr: `TransgenesCellRanger.`
+- For SEQC (or STAR Aligner in general): `TransgenesSeqc.`
+
 #### Input FASTA File Requirements
 
 Please refer to to the document [here](./docs/user-instructions.md).
@@ -30,11 +35,11 @@ Please refer to to the document [here](./docs/user-instructions.md).
 
 #### Biotype Filtering
 
-Only biotypes specified in `StarTransgenes.biotypes` will be retained from the input GTF file (`StarTransgenes.annotationGtf`):
+Only biotypes specified in `TransgenesCellRanger.biotypes` will be retained from the input GTF file (`TransgenesCellRanger.annotationGtf`):
 
 ```json
-"StarTransgenes.annotationGtf": "s3://seqc-public/genomes/mm38_long_polya/annotations.gtf",
-"StarTransgenes.biotypes": [
+"TransgenesCellRanger.annotationGtf": "s3://seqc-public/genomes/mm38_long_polya/annotations.gtf",
+"TransgenesCellRanger.biotypes": [
     "protein_coding",
     "lincRNA",
     "antisense",
@@ -57,8 +62,8 @@ You need to specify the standard reference genome and gene annotation file in `i
 
 Key                                    | S3 URI
 -------------------------------------- | --------------------------------------------------------------
-`StarTransgenes.genomeReferenceFasta`  | `s3://seqc-public/genomes/hg38_long_polya/homo_sapiens.fa`
-`StarTransgenes.annotationGtf`         | `s3://seqc-public/genomes/hg38_long_polya/annotations.gtf`
+`TransgenesCellRanger.genomeReferenceFasta`  | `s3://seqc-public/genomes/hg38_long_polya/homo_sapiens.fa`
+`TransgenesCellRanger.annotationGtf`         | `s3://seqc-public/genomes/hg38_long_polya/annotations.gtf`
 
 This GTF is a pre-filtered annotation.
 
@@ -66,8 +71,8 @@ This GTF is a pre-filtered annotation.
 
 Key                                    | S3 URI
 -------------------------------------- | --------------------------------------------------------------
-`StarTransgenes.genomeReferenceFasta`  | `s3://seqc-public/genomes/mm38_long_polya/mus_musculus.fa`
-`StarTransgenes.annotationGtf`         | `s3://seqc-public/genomes/mm38_long_polya/annotations.gtf`
+`TransgenesCellRanger.genomeReferenceFasta`  | `s3://seqc-public/genomes/mm38_long_polya/mus_musculus.fa`
+`TransgenesCellRanger.annotationGtf`         | `s3://seqc-public/genomes/mm38_long_polya/annotations.gtf`
 
 This GTF is a pre-filtered annotation.
 
@@ -75,8 +80,8 @@ This GTF is a pre-filtered annotation.
 
 Key                                    | S3 URI
 -------------------------------------- | --------------------------------------------------------------
-`StarTransgenes.genomeReferenceFasta`  | `s3://seqc-public/genomes/GRCh38-Ensembl-100/homo_sapiens.fa`
-`StarTransgenes.annotationGtf`         | `s3://seqc-public/genomes/GRCh38-Ensembl-100/annotations.gtf`
+`TransgenesCellRanger.genomeReferenceFasta`  | `s3://seqc-public/genomes/GRCh38-Ensembl-100/homo_sapiens.fa`
+`TransgenesCellRanger.annotationGtf`         | `s3://seqc-public/genomes/GRCh38-Ensembl-100/annotations.gtf`
 
 This GTF is a pre-filtered annotation.
 
@@ -84,8 +89,8 @@ This GTF is a pre-filtered annotation.
 
 Key                                    | S3 URI
 -------------------------------------- | --------------------------------------------------------------
-`StarTransgenes.genomeReferenceFasta`  | `s3://seqc-public/genomes/GRCm38-Ensembl-100/mus_musculus.fa`
-`StarTransgenes.annotationGtf`         | `s3://seqc-public/genomes/GRCm38-Ensembl-100/annotations.gtf`
+`TransgenesCellRanger.genomeReferenceFasta`  | `s3://seqc-public/genomes/GRCm38-Ensembl-100/mus_musculus.fa`
+`TransgenesCellRanger.annotationGtf`         | `s3://seqc-public/genomes/GRCm38-Ensembl-100/annotations.gtf`
 
 This GTF is a pre-filtered annotation.
 
@@ -98,11 +103,12 @@ conda activate scing
     -k ~/keys/cromwell-secrets.json \
     -i configs/sample.inputs.json \
     -l configs/sample.labels.json \
-    -o StarTransgenes.options.aws.json
+    -o TransgenesCellRanger.options.aws.json
 ```
 
 ## Outputs
 
 - STAR index and `annotations.gtf` for SEQC.
+- Reference pakcage for Cell Ranger
 - GTF filter log if only certain biotypes were kept.
 - FASTA/Index file for IGV visualization (`fa.gz` and `fa.gz.gzi`).
