@@ -116,14 +116,28 @@ This GTF is a pre-filtered annotation.
 
 ## Submit Your Job
 
+For Cell Ranger:
+
 ```bash
 conda activate scing
 
-./submit.sh \
+./submit-cellranger.sh \
     -k ~/keys/cromwell-secrets.json \
     -i configs/sample.inputs.json \
     -l configs/sample.labels.json \
     -o TransgenesCellRanger.options.aws.json
+```
+
+For SEQC (or STAR Aligner in general):
+
+```bash
+conda activate scing
+
+./submit-seqc.sh \
+    -k ~/keys/cromwell-secrets.json \
+    -i configs/sample.inputs.json \
+    -l configs/sample.labels.json \
+    -o TransgenesSeqc.options.aws.json
 ```
 
 ## Outputs
