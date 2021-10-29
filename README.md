@@ -76,6 +76,26 @@ Key                       | S3 URI
 
 This GTF is a pre-filtered annotation.
 
+**Ensembl 98 (Human)**
+
+Key                       | S3 URI
+------------------------- | --------------------------------------------------------------
+`*.genomeReferenceFasta`  | `s3://seqc-public/genomes/GRCh38-Ensembl-98/homo_sapiens.fa`
+`*.annotationGtf`         | `s3://seqc-public/genomes/GRCh38-Ensembl-98/annotations.gtf`
+
+- This GTF is a pre-filtered annotation.
+- Cell Ranger's default reference package 2020-A (July 7, 2020) is based on Ensembl 98.
+
+**Ensembl 98 (Mouse)**
+
+Key                       | S3 URI
+------------------------- | --------------------------------------------------------------
+`*.genomeReferenceFasta`  | `s3://seqc-public/genomes/GRCm38-Ensembl-98/mus_musculus.fa`
+`*.annotationGtf`         | `s3://seqc-public/genomes/GRCm38-Ensembl-98/annotations.gtf`
+
+- This GTF is a pre-filtered annotation.
+- Cell Ranger's default reference package 2020-A (July 7, 2020) is based on Ensembl 98.
+
 **Ensembl 100 (Human)**
 
 Key                       | S3 URI

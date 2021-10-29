@@ -1,7 +1,7 @@
 {
     "TransgenesCellRanger.referenceName": "project-A-mm38-transgenes",
-    "TransgenesCellRanger.genomeReferenceFasta": "s3://seqc-public/genomes/mm38_long_polya/mus_musculus.fa",
-    "TransgenesCellRanger.annotationGtf": "s3://seqc-public/genomes/mm38_long_polya/annotations.gtf",
+    "TransgenesCellRanger.genomeReferenceFasta": "s3://seqc-public/genomes/GRCm38-Ensembl-98/mus_musculus.fa",
+    "TransgenesCellRanger.annotationGtf": "s3://seqc-public/genomes/GRCm38-Ensembl-98/annotations.gtf",
     "TransgenesCellRanger.customFastaFiles": [
         "s3://dp-lab-data/.../transgenes/CreERTM.fa",
         "s3://dp-lab-data/.../transgenes/tdTomato.fa",
