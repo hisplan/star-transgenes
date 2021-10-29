@@ -60,37 +60,37 @@ You need to specify the standard reference genome and gene annotation file in `i
 
 **Ensembl 85 (Human)**
 
-Key                                    | S3 URI
--------------------------------------- | --------------------------------------------------------------
-`TransgenesCellRanger.genomeReferenceFasta`  | `s3://seqc-public/genomes/hg38_long_polya/homo_sapiens.fa`
-`TransgenesCellRanger.annotationGtf`         | `s3://seqc-public/genomes/hg38_long_polya/annotations.gtf`
+Key                       | S3 URI
+------------------------- | --------------------------------------------------------------
+`*.genomeReferenceFasta`  | `s3://seqc-public/genomes/hg38_long_polya/homo_sapiens.fa`
+`*.annotationGtf`         | `s3://seqc-public/genomes/hg38_long_polya/annotations.gtf`
 
 This GTF is a pre-filtered annotation.
 
 **Ensembl 87 (Mouse)**
 
-Key                                    | S3 URI
--------------------------------------- | --------------------------------------------------------------
-`TransgenesCellRanger.genomeReferenceFasta`  | `s3://seqc-public/genomes/mm38_long_polya/mus_musculus.fa`
-`TransgenesCellRanger.annotationGtf`         | `s3://seqc-public/genomes/mm38_long_polya/annotations.gtf`
+Key                       | S3 URI
+------------------------- | --------------------------------------------------------------
+`*.genomeReferenceFasta`  | `s3://seqc-public/genomes/mm38_long_polya/mus_musculus.fa`
+`*.annotationGtf`         | `s3://seqc-public/genomes/mm38_long_polya/annotations.gtf`
 
 This GTF is a pre-filtered annotation.
 
 **Ensembl 100 (Human)**
 
-Key                                    | S3 URI
--------------------------------------- | --------------------------------------------------------------
-`TransgenesCellRanger.genomeReferenceFasta`  | `s3://seqc-public/genomes/GRCh38-Ensembl-100/homo_sapiens.fa`
-`TransgenesCellRanger.annotationGtf`         | `s3://seqc-public/genomes/GRCh38-Ensembl-100/annotations.gtf`
+Key                       | S3 URI
+------------------------- | --------------------------------------------------------------
+`*.genomeReferenceFasta`  | `s3://seqc-public/genomes/GRCh38-Ensembl-100/homo_sapiens.fa`
+`*.annotationGtf`         | `s3://seqc-public/genomes/GRCh38-Ensembl-100/annotations.gtf`
 
 This GTF is a pre-filtered annotation.
 
 **Ensembl 100 (Mouse)**
 
-Key                                    | S3 URI
--------------------------------------- | --------------------------------------------------------------
-`TransgenesCellRanger.genomeReferenceFasta`  | `s3://seqc-public/genomes/GRCm38-Ensembl-100/mus_musculus.fa`
-`TransgenesCellRanger.annotationGtf`         | `s3://seqc-public/genomes/GRCm38-Ensembl-100/annotations.gtf`
+Key                       | S3 URI
+------------------------- | --------------------------------------------------------------
+`*.genomeReferenceFasta`  | `s3://seqc-public/genomes/GRCm38-Ensembl-100/mus_musculus.fa`
+`*.annotationGtf`         | `s3://seqc-public/genomes/GRCm38-Ensembl-100/annotations.gtf`
 
 This GTF is a pre-filtered annotation.
 
