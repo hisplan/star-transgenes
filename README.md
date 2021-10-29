@@ -38,7 +38,7 @@ Please refer to to the document [here](./docs/user-instructions.md).
 Only biotypes specified in `TransgenesCellRanger.biotypes` will be retained from the input GTF file (`TransgenesCellRanger.annotationGtf`):
 
 ```json
-"TransgenesCellRanger.annotationGtf": "s3://seqc-public/genomes/mm38_long_polya/annotations.gtf",
+"TransgenesCellRanger.annotationGtf": "s3://seqc-public/genomes/GRCm38-Ensembl-98/annotations.gtf",
 "TransgenesCellRanger.biotypes": [
     "protein_coding",
     "lincRNA",
