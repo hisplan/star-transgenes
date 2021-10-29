@@ -1,6 +1,11 @@
-# STAR Transgenes
+# wdl-transgenes
 
-Creating a genome index for the STAR aligner with transgenes
+- Creating a transgene-included reference package for Cell Ranger
+- Creating a transgene-included genome index for the STAR aligner
+
+## License
+
+The code is available to everyone under the standard [MIT license](./LICENSE). However, the code internally uses 10x software for certain things, so please make sure that you read and agree to [10x End User Software License](https://www.10xgenomics.com/end-user-software-license-agreement).
 
 ## Setup
 

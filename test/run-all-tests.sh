@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-modules="FilterBiotypes GenomeForIgv FastaToGtf CreateFullGtf STAR"
+modules="CellRanger Transgenes FilterBiotypes GenomeForIgv FastaToGtf CreateFullGtf STAR"
 
 for module_name in $modules
 do

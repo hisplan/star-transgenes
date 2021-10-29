@@ -1,0 +1,7 @@
+{
+    "CellRanger.referenceName": "test-ref-pkg",
+    "CellRanger.fasta": "s3://dp-lab-gwf-core/cromwell-execution/Transgenes/7c408518-f857-4f6a-bea8-4cdaf7c27e93/call-Transgenes/Transgenes/8e6e7b88-c40e-48c0-bd6b-0a9a3dc358bc/call-ConcatenateFastas/customGenome.fa",
+    "CellRanger.gtf": "s3://dp-lab-gwf-core/cromwell-execution/Transgenes/7c408518-f857-4f6a-bea8-4cdaf7c27e93/call-Transgenes/Transgenes/8e6e7b88-c40e-48c0-bd6b-0a9a3dc358bc/call-CreateFullGtf/cacheCopy/custom-annotations.gtf",
+    "CellRanger.cellRangerVersion": "6.1.1",
+    "CellRanger.dockerRegistry": "quay.io/hisplan"
+}

@@ -31,8 +31,8 @@ fi
 
 cromwell-tools submit \
     --secrets-file ${service_account_key} \
-    --wdl StarTransgenes.wdl \
-    --deps-file StarTransgenes.deps.zip \
+    --wdl TransgenesCellRanger.wdl \
+    --deps-file Transgenes.deps.zip \
     --inputs-files ${inputs_file} \
     --label-file ${labels_file} \
     --options-file ${options_file}

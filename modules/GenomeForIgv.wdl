@@ -23,11 +23,16 @@ task ConcatenateFastas {
         cat ~{genomeReferenceFasta} ~{sep=" " customFastaFiles} > ~{outName}
 
         # comrpess
-        bgzip --threads ~{numCores} --index ~{outName}
+        bgzip \
+            --threads ~{numCores} \
+            --index \
+            --index-name ~{outName}.gz.gzi \
+            --stdout ~{outName} > ~{outName}.gz
     >>>
 
     output {
-        File out = outName + ".gz"
+        File out = outName
+        File outBgzip = outName + ".gz"
     }
 
     runtime {

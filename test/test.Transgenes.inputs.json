@@ -1,0 +1,27 @@
+{
+    "Transgenes.genomeReferenceFasta": "s3://seqc-public/genomes/mm38_long_polya/mus_musculus.fa",
+    "Transgenes.annotationGtf": "s3://seqc-public/genomes/mm38_long_polya/annotations.gtf",
+    "Transgenes.customFastaFiles": [
+        "s3://dp-lab-data/collaborators/joynera/AdultNepScrnaseq/genomes/CFP.fa",
+        "s3://dp-lab-data/collaborators/joynera/AdultNepScrnaseq/genomes/TdTom.fa"
+    ],
+    "Transgenes.ensembleIdPrefix": "ENSMUS",
+    "Transgenes.ensembleIds": [
+        "00000900001",
+        "00000900002"
+    ],
+    "Transgenes.biotypes": [
+        "protein_coding",
+        "lincRNA",
+        "antisense",
+        "IG_V_gene",
+        "IG_D_gene",
+        "IG_J_gene",
+        "IG_C_gene",
+        "TR_V_gene",
+        "TR_D_gene",
+        "TR_J_gene",
+        "TR_C_gene"
+    ],
+    "Transgenes.dockerRegistry": "quay.io/hisplan"
+}

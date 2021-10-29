@@ -1,8 +1,8 @@
 #!/bin/bash -e
 
-wf_name="star-transgenes"
-version="0.0.7"
-files="submit.sh StarTransgenes.deps.zip StarTransgenes.wdl StarTransgenes.options.aws.json config/template.*.json"
+wf_name="transgenes"
+version="0.0.8"
+files="submit-*.sh Transgenes.deps.zip TransgenesSeqc.wdl TransgenesCellRanger.wdl Transgenes.options.aws.json config/template.*.json"
 dest="$HOME/scing/bin"
 
 usage()

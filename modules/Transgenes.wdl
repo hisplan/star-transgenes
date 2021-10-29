@@ -1,12 +1,11 @@
 version 1.0
 
-import "modules/FastaToGtf.wdl" as FastaToGtf
-import "modules/CreateFullGtf.wdl" as CreateFullGtf
-import "modules/STAR.wdl" as STAR
-import "modules/GenomeForIgv.wdl" as GenomeForIgv
-import "modules/FilterBiotypes.wdl" as FilterBiotypes
+import "FastaToGtf.wdl" as FastaToGtf
+import "CreateFullGtf.wdl" as CreateFullGtf
+import "GenomeForIgv.wdl" as GenomeForIgv
+import "FilterBiotypes.wdl" as FilterBiotypes
 
-workflow StarTransgenes {
+workflow Transgenes {
 
     input {
         File genomeReferenceFasta
@@ -15,8 +14,6 @@ workflow StarTransgenes {
         Array[String] ensembleIds
         String ensembleIdPrefix
 
-        Int sjdbOverhang = 101
-        String starVersion
         Array[String] biotypes
 
         # docker-related
@@ -55,7 +52,7 @@ workflow StarTransgenes {
 
     call GenomeForIgv.IndexCompressedFasta {
         input:
-            compressedFasta = ConcatenateFastas.out,
+            compressedFasta = ConcatenateFastas.outBgzip,
             dockerRegistry = dockerRegistry
     }
 
@@ -73,21 +70,12 @@ workflow StarTransgenes {
             dockerRegistry = dockerRegistry
     }
 
-    call STAR.GenerateIndex {
-        input:
-            genomeReferenceFasta = genomeReferenceFasta,
-            customFasta = customFastaFiles,
-            annotationGtf = FilterBiotypes.outGtf,
-            sjdbOverhang = sjdbOverhang,
-            starVersion = starVersion,
-            dockerRegistry = dockerRegistry
-    }
-
     output {
-        Array[File] outStarFiles = GenerateIndex.outFiles
         File outFasta = ConcatenateFastas.out
+        File outFastaBgzip = ConcatenateFastas.outBgzip
         File outFastaGzi = IndexCompressedFasta.outGzi
         File outFastaFai = IndexCompressedFasta.outFai
+        File outGtf = CreateFullGtf.out
         File outFilterLog = FilterBiotypes.outLog
     }
 }

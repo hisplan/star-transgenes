@@ -1,9 +1,9 @@
 {
-    "pipelineType": "StarTransgenes",
+    "pipelineType": "TransgenesCellRanger",
     "project": "YOUR_PROJECT_NAME",
     "sample": "YOUR_SAMPLE_NAME",
     "owner": "YOUR_USER_ID",
-    "destination": "s3://.../cr-vdj-results/transgenes",
+    "destination": "s3://.../refdata-cellranger/",
     "transfer": "-",
     "comment": "THIS IS A TEMPLATE"
 }
