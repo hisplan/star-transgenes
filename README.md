@@ -35,7 +35,9 @@ Please refer to to the document [here](./docs/user-instructions.md).
 
 #### Biotype Filtering
 
-Only biotypes specified in `TransgenesCellRanger.biotypes` will be retained from the input GTF file (`TransgenesCellRanger.annotationGtf`):
+Only biotypes specified in `*.biotypes` will be retained from the input GTF file (`*.annotationGtf`):
+
+For example:
 
 ```json
 "TransgenesCellRanger.annotationGtf": "s3://seqc-public/genomes/GRCm38-Ensembl-98/annotations.gtf",
